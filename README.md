@@ -1,5 +1,6 @@
 
 
+
 # JIRA & GitHub metrics
 Fetch metrics from JIRA and GitHub for a given set of users following the given steps:
 
@@ -24,18 +25,18 @@ Add the newly generated Web App execution URL into the 'Settings' tab within you
 
 ## 5. Configure the Engineer sheet
 For fetching information of a given engineer, you need to follow three steps:
-- Update both the sheet name and the given engineer name (*B2 cell*) to the same name/identifier. Ex.: John Doe
+- Update both the sheet name and the given engineer name (*B2 cell*) to the same name/identifier. *Ex.: John Doe*.
 - Add their given JIRA_ID (*B3 cell*) and GITHUB_ID (*N3 cell*).
 - Execute the correspondent generated scripts in C2 cell for JIRA and N2 cell Github.
 
 ## 6. Configure the Team sheet
 Team sheet uses its own query, but works similarly to the Engineering one:
 - Update both the sheet name and the given team/project name (*B2 cell*) to the same name/identifier. Ex.: Payment Experience
-- Also, it is necessary to adequate the query to your own needs. For example, update the project name:  project = 'PX'
+- Also, it is necessary to adequate the query to your own needs. For example, update the project name: project = 'PX'.
 
 ## 'Team Overview' & 'Per Platform trends' tabs
 Both are automatically populated according to the changes in the Engineer sheet(s). It might be necessary to adjust some charts if adding more engineers for a given platform (Android, iOS, and so on).
 
 ### Known issue(s)
-- When updating the Engineer(s) sheet(s), sometimes Google sheets doesn't automatically updates the information in the 'Team Overview' sheet. It is necessary to tweak it by "dragging" the functions from a given row above or below. 
-Example: The information for line 5 is missing even if with all pulled information for "Engineer 1". Drag the formulas from range B6-AA6 to range B5-AA5. This will update the information accordingly.
+- When updating the Engineer(s) sheet(s), sometimes Google sheets doesn't automatically updates the information in the 'Team Overview' sheet. It is necessary to tweak it by "dragging" the functions from a given row above or below.
+*Example: The information for line 5 is missing even if with all pulled information for "Engineer 1". Drag the formulas from range B6-AA6 to range B5-AA5. This will update the information accordingly.*
