@@ -1,29 +1,14 @@
-//JIRA
-const jiraUrl = `https://glovoapp.atlassian.net/rest/api/3/search?expand=changelog&jql=`;
-const jiraOptions = {
-  method: 'GET',
-  headers: {
-    'Authorization': 'YOUR_JIRA_TOKEN', //'Basic XXX'
-    'Accept': 'application/json'
-  }
-};
-
-// GITHUB 
-const githubOptions = {
-  method: 'GET',
-  headers: {
-    'Authorization': 'YOUR_GITHUB_TOKEN', // 'Bearer XXX'
-    'Accept': 'application/vnd.github+json',
-  }
-};
+const jiraToken = 'YOUR_JIRA_TOKEN' //'Basic XXX'
+const githubToken = 'YOUR_GITHUB_TOKEN' // 'Bearer XXX'
 
 function doGet(e) {
-  if (e.parameter.executionType == "updateForJIRA") {
-    return updateForJIRA(e.parameter);
-  } else if (e.parameter.executionType == "updateForGithub") {
-    return updateForGithub(e.parameter);
-  } else {
-    return ContentService.createTextOutput("Nothing has been executed");
+  switch (e.parameter.executionType) {
+    case "updateForJIRA":
+      return updateForJIRA(e.parameter);
+    case "updateForGithub":
+      return updateForGithub(e.parameter);
+    default:
+      return ContentService.createTextOutput("Nothing has been executed");
   }
 }
 
@@ -33,7 +18,7 @@ function updateForJIRA(parameter) {
   let assignee = parameter.assignee;
   let query = parameter.query;
 
-  if (fileURL != null && sheetName != null && query != null) {
+  if (fileURL && sheetName && query) {
     updateSheetWithJiraAPIData(fileURL, sheetName, assignee, query);
     return ContentService.createTextOutput("JIRA function executed successfully for " + sheetName)
   } else {
@@ -48,7 +33,7 @@ function updateForGithub(parameter) {
   let startDate = parameter.startDate;
   let endDate = parameter.endDate;
 
-  if (fileURL != null && sheetName != null && username != null && startDate != null && endDate != null) {
+  if (fileURL && sheetName && username && startDate && endDate) {
     processPullRequests(fileURL, sheetName, username, startDate, endDate)
     return ContentService.createTextOutput("GitHub function executed successfully for " + username)
   } else {
@@ -56,7 +41,16 @@ function updateForGithub(parameter) {
   }
 }
 
-// JIRA
+// JIRA functions
+
+const jiraUrl = `https://glovoapp.atlassian.net/rest/api/3/search?expand=changelog&jql=`;
+const jiraOptions = {
+  method: 'GET',
+  headers: {
+    'Authorization': jiraToken,
+    'Accept': 'application/json'
+  }
+};
 
 function fetchJiraData(url, options) {
   try {
@@ -98,7 +92,7 @@ function updateSheetWithJiraAPIData(fileURL, sheetName, assignee, query) {
 
   if (!issues) return;
 
-  let sheet = SpreadsheetApp.openByUrl(fileURL).getSheetByName(sheetName);
+  const sheet = SpreadsheetApp.openByUrl(fileURL).getSheetByName(sheetName);
 
   let startRow = 6;
   let startColumn = 1;
@@ -204,7 +198,15 @@ function updateSheetWithJiraAPIData(fileURL, sheetName, assignee, query) {
   }
 }
 
-// GITHUB
+// GITHUB functions
+
+const githubOptions = {
+  method: 'GET',
+  headers: {
+    'Authorization': githubToken,
+    'Accept': 'application/vnd.github+json',
+  }
+};
 
 function fetchAllPullRequests(username, startDate, endDate, page = 1, pullRequests = []) {
   try {
