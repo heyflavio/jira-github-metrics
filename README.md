@@ -2,7 +2,13 @@
 
 
 # JIRA & GitHub metrics
-Fetch metrics from JIRA and GitHub for a given set of users following the given steps:
+
+![CleanShot 2023-08-13 at 20 21 58@2x](https://github.com/flaviobtc/jira-github-metrics/assets/7707190/fbddc02e-5196-4694-8114-55546f3c03ea)
+
+
+Fetch metrics from JIRA and GitHub for a given set of users, for helping you checking information and visualize trends more easily.
+
+In order to create your own spreadsheet, follow the given steps:
 
 ##  1. Make a copy of the Spreadsheet template
 You can find the template [here](https://docs.google.com/spreadsheets/d/1ZhT8W2BHU6Xpbz0DtTIRGxtvqTffHAcMFYvBk9ao5TE/edit?usp=sharing), with the given script already associated (you may also find the same script in this repository). All you need to do is make a copy of it for yourself.
