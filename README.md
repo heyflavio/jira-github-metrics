@@ -29,13 +29,13 @@ In order to generate an execution URL for your script, generate a New Deployment
 ## 4. Configure the Web app execution URL
 Add the newly generated Web App execution URL into the 'Settings' tab within your spreadsheet (*B2 cell*).
 
-## 5. Configure the Engineer sheet
+## 5. Configure the 'Engineer' sheets
 For fetching information of a given engineer, you need to follow three steps:
 - Update both the sheet name and the given engineer name (*B2 cell*) to the same name/identifier. *Ex.: John Doe*.
 - Add their given JIRA_ID (*B3 cell*) and GITHUB_ID (*N3 cell*).
 - Execute the correspondent generated scripts in C2 cell for JIRA and N2 cell Github.
 
-## 6. Configure the Team sheet
+## 6. Configure the 'Team' sheet
 Team sheet uses its own query, but works similarly to the Engineering one:
 - Update both the sheet name and the given team/project name (*B2 cell*) to the same name/identifier. Ex.: Payment Experience
 - Also, it is necessary to adequate the query to your own needs. For example, update the project name: project = 'PX'.
