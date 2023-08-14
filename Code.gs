@@ -13,13 +13,12 @@ function doGet(e) {
 }
 
 function updateForJIRA(parameter) {
-  let fileURL = parameter.fileURL;
   let sheetName = parameter.sheetName;
   let assignee = parameter.assignee;
   let query = parameter.query;
 
-  if (fileURL && sheetName && query) {
-    updateSheetWithJiraAPIData(fileURL, sheetName, assignee, query);
+  if (sheetName && query) {
+    updateSheetWithJiraAPIData(sheetName, assignee, query);
     return ContentService.createTextOutput("JIRA function executed successfully for " + sheetName)
   } else {
     return ContentService.createTextOutput("JIRA function could not be executed: missing parameters.")
@@ -27,14 +26,13 @@ function updateForJIRA(parameter) {
 }
 
 function updateForGithub(parameter) {
-  let fileURL = parameter.fileURL;
   let sheetName = parameter.sheetName;
   let username = parameter.username;
   let startDate = parameter.startDate;
   let endDate = parameter.endDate;
 
-  if (fileURL && sheetName && username && startDate && endDate) {
-    processPullRequests(fileURL, sheetName, username, startDate, endDate)
+  if (sheetName && username && startDate && endDate) {
+    processPullRequests(sheetName, username, startDate, endDate)
     return ContentService.createTextOutput("GitHub function executed successfully for " + username)
   } else {
     return ContentService.createTextOutput("GitHub function could not be executed: missing parameters.")
@@ -81,7 +79,7 @@ function fetchJiraData(url, options) {
   }
 }
 
-function updateSheetWithJiraAPIData(fileURL, sheetName, assignee, query) {
+function updateSheetWithJiraAPIData(sheetName, assignee, query) {
 
   let assigneeQuery = assignee != null ? ('assignee = ' + assignee + ' AND ') : "";
   let jqlQuery = assigneeQuery + query;
@@ -92,7 +90,7 @@ function updateSheetWithJiraAPIData(fileURL, sheetName, assignee, query) {
 
   if (!issues) return;
 
-  const sheet = SpreadsheetApp.openByUrl(fileURL).getSheetByName(sheetName);
+  const sheet = SpreadsheetApp.getActive().getSheetByName(sheetName);
 
   let startRow = 6;
   let startColumn = 1;
@@ -254,11 +252,11 @@ function fetchAllPullRequests(username, startDate, endDate, page = 1, pullReques
   }
 }
 
-function processPullRequests(fileURL, sheetName, username, startDate, endDate) {
+function processPullRequests(sheetName, username, startDate, endDate) {
   let pullRequests = fetchAllPullRequests(username, startDate, endDate)
   if (!pullRequests) return;
 
-  let sheet = SpreadsheetApp.openByUrl(fileURL).getSheetByName(sheetName);
+  let sheet = SpreadsheetApp.getActive().getSheetByName(sheetName);
 
   let startRow = 6;
   let startColumn = 13;
