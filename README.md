@@ -45,4 +45,4 @@ Both are automatically populated according to the changes in the Engineer sheet(
 
 ### Known issue(s)
 - When updating the Engineer(s) sheet(s), sometimes Google sheets doesn't automatically updates the information in the 'Team Overview' sheet. It is necessary to tweak it by "dragging" the functions from a given row above or below.
-*Example: The information for line 5 is missing even if with all pulled information for "Engineer 1". Drag the formulas from range B6-AA6 to range B5-AA5. This will update the information accordingly.*
+*Example: The information for line 5 (B5-AA5) is missing even if with all pulled information for "Engineer 1". Drag the formulas from range B6-AA6 to range B5-AA5. This will update the information accordingly.*
