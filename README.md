@@ -15,7 +15,7 @@ You can find the template [here](https://docs.google.com/spreadsheets/d/1ZhT8W2B
 
 ## 2. Insert your JIRA & GitHub access tokens
 
-Add your own tokens from JIRA and GitHub in order to access their APIs:
+Add your own tokens from [JIRA](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/) and [GitHub](https://github.com/settings/tokens) in order to access their APIs:
 - Access your newly copied associated spreadsheet script via Apps Script (In the copied spreadsheet, access *'Extensions -> Apps Script'*). It is necessary to replace the first two lines of code:
 
 ```javascript 
