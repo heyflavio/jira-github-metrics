@@ -13,7 +13,7 @@ In order to create your own spreadsheet, follow the given steps:
 ##  1. Make a copy of the Spreadsheet template
 You can find the template [here](https://docs.google.com/spreadsheets/d/1ZhT8W2BHU6Xpbz0DtTIRGxtvqTffHAcMFYvBk9ao5TE/edit?usp=sharing), with the given script already associated (you may also find the same script in this repository). All you need to do is make a copy of it for yourself.
 
-## 2. Insert your JIRA & GitHub access tokens
+## 2. Insert your JIRA & GitHub API tokens
 
 Add your own tokens from [JIRA](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/) and [GitHub](https://github.com/settings/tokens) in order to access their APIs:
 - Access your newly copied associated spreadsheet script via Apps Script (In the copied spreadsheet, access *'Extensions -> Apps Script'*). It is necessary to replace the first two lines of code:
