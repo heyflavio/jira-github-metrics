@@ -33,7 +33,7 @@ Add the newly generated Web App execution URL into the 'Settings' tab within you
 For fetching information of a given engineer, you need to follow three steps:
 - Update both the sheet name and the given engineer name (*B2 cell*) to the same name/identifier. *Ex.: John Doe*.
 - Add their given JIRA_ID (*B3 cell*) and GITHUB_ID (*N3 cell*).
-- Execute the correspondent generated scripts in C2 cell for JIRA and N2 cell Github.
+- Execute the correspondent generated scripts in C2 cell for JIRA and N2 cell for Github.
 
 ## 6. Configure the 'Team' sheet
 Team sheet uses its own query, but works similarly to the Engineering one:
