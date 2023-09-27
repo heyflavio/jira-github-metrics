@@ -16,11 +16,13 @@ You can find the template [here](https://docs.google.com/spreadsheets/d/1ZhT8W2B
 ## 2. Insert your JIRA & GitHub API tokens
 
 Add your own tokens from [JIRA](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/) and [GitHub](https://github.com/settings/tokens) in order to access their APIs:
+- For the JIRA token, it is necessary to prepend your email to it (ex.: ```flavio@email.com:YOUR_JIRA_TOKEN```), and encode it using base64.
+- For GitHub, create a **Personal access tokens (classic)**, and provide the needed accesses: repo, user & project.
 - Access your newly copied associated spreadsheet script via Apps Script (In the copied spreadsheet, access *'Extensions -> Apps Script'*). It is necessary to replace the first two lines of code:
 
 ```javascript 
-const jiraToken = 'YOUR_JIRA_TOKEN'; // 'Basic XXX' 
-const githubToken = 'YOUR_GITHUB_TOKEN'; // 'Bearer XXX'
+const jiraToken = 'Basic YOUR_EMAIL_&_JIRA_TOKEN_ENCODED'; // 'Basic XXX' 
+const githubToken = 'Bearer YOUR_GITHUB_TOKEN'; // 'Bearer XXX'
 ```
 
 ## 3. Deploy a new Web app in Apps Script
