@@ -1,6 +1,3 @@
-
-
-
 # JIRA & GitHub metrics
 
 ![CleanShot 2023-08-13 at 20 21 58@2x](https://github.com/flaviobtc/jira-github-metrics/assets/7707190/fbddc02e-5196-4694-8114-55546f3c03ea)
@@ -18,7 +15,7 @@ You can find the template [here](https://docs.google.com/spreadsheets/d/1ZhT8W2B
 Add your own tokens from [JIRA](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/) and [GitHub](https://github.com/settings/tokens) in order to access their APIs:
 - For the JIRA token, it is necessary to prepend your email to it (ex.: ```flavio@email.com:YOUR_JIRA_TOKEN```), and encode it using [base64](https://www.base64encode.org/).
 - For GitHub, create a **Personal access tokens (classic)**, and provide the needed accesses: repo, user & project.
-  - It is necessary to authorize access to your company repositories via SSO.
+  - For Single sign-on organizations, it is necessary to authorize access to the repositories via SSO.
 - Access your newly copied associated spreadsheet script via Apps Script (In the copied spreadsheet, access *'Extensions -> Apps Script'*). It is necessary to replace the first two lines of code:
 
 ```javascript 
