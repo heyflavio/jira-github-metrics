@@ -43,6 +43,11 @@ Team sheet uses its own query, but works similarly to the Engineering one:
 ## 'Team Overview' & 'Per Platform trends' tabs
 Both are automatically populated according to the changes in the Engineer sheet(s). It might be necessary to adjust some charts if adding more engineers for a given platform (Android, iOS, and so on).
 
+### Other consideration(s)
+- For JIRA, different metrics provided will work accordingly depending on your team/project behavior and on filling some data:
+  - The "Days Spent" metric in JIRA is calculated from two dates: the date a task moves to "In Progress" and the date it moves from "Icebox" or "TODO." When both dates are available, the start date is the average of the two. Otherwise, it is the date the task exits "Icebox" or "TODO." This accounts for instances where tasks may not have been promptly updated to "In Progress." The metric's accuracy relies on the team's diligence in maintaining the board.
+  - Similarly, the reliability of "Priority" and "Story Points" metrics depends on the team's consistency in updating this information.
+ 
 ### Known issue(s)
 - When updating the Engineer(s) sheet(s), sometimes Google sheets doesn't automatically updates the information in the 'Team Overview' sheet. It is necessary to tweak it by "dragging" the functions from a given row above or below.
 *Example: The information for line 5 (B5-AA5) is missing even if with all pulled information for "Engineer 1". Drag the formulas from range B6-AA6 to range B5-AA5. This will update the information accordingly.*
