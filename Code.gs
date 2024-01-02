@@ -260,7 +260,7 @@ function processPullRequests(sheetName, username, startDate, endDate) {
 
   let startRow = 6;
   let startColumn = 13;
-  sheet.getRange(startRow, startColumn, 400, 6).clearContent();
+  sheet.getRange(startRow, startColumn, 400, 7).clearContent();
 
   for (var i = 0; i < pullRequests.length; i++) {
     var pr = pullRequests[i];
